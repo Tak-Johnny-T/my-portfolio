@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="オリジナルホラー短編作品『ケガレトリ』ノベルゲーム版の案内ページ。">
+  <meta property="og:title" content="ケガレトリ ノベルゲーム版 | T.Johnny T. Portfolio">
+  <meta property="og:description" content="その祠は、あなたのケガレを喰い尽くす。プレイ時間約15分の短編ホラーノベルゲーム。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="ui_title_bg_logo.png">
+  <title>ケガレトリ ノベルゲーム版 | T.Johnny T. Portfolio</title>
+  <style>
+    :root {
+      --black: #050506;
+      --panel: #101014;
+      --text: #f2eeee;
+      --muted: #b9adad;
+      --red: #b5101b;
+      --red-bright: #e12a36;
+      --line: rgba(255, 255, 255, .14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(5, 5, 6, .16), rgba(5, 5, 6, .82)),
+        url("ui_title_bg_logo.png") center / cover fixed no-repeat;
+      font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 10;
+      background: rgba(5, 5, 6, .82);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .back-link {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .back-link:hover {
+      color: var(--red-bright);
+    }
+
+    main {
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      padding: 112px 24px 64px;
+    }
+
+    .panel {
+      width: min(860px, 100%);
+      margin: 0 auto;
+      padding: clamp(28px, 6vw, 56px);
+      background: rgba(16, 16, 20, .88);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .52);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--red-bright);
+      font-weight: 900;
+      letter-spacing: .16em;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 7vw, 68px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .facts {
+      display: grid;
+      gap: 0;
+      margin: 32px 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .facts li {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .facts strong {
+      color: var(--red-bright);
+      font-weight: 900;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .06);
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .button.primary {
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .button:hover {
+      background: var(--red-bright);
+      border-color: var(--red-bright);
+    }
+
+    .note {
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, .58);
+      font-size: 13px;
+    }
+
+    @media (max-width: 640px) {
+      .facts li {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .actions {
+        display: grid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav">
+      <a class="brand" href="index.html">T.Johnny T.</a>
+      <a class="back-link" href="kegaretori.html">ケガレトリへ戻る</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <p class="eyebrow">Playable Novel Game</p>
+      <h1>ケガレトリ<br>ノベルゲーム版</h1>
+      <p class="lead">
+        実際にブラウザでプレイできる完成版です。プレイ時間は約15分。音が出るため、再生環境にご注意ください。
+      </p>
+
+      <ul class="facts">
+        <li><strong>ジャンル</strong><span>短編ホラー / ノベルゲーム</span></li>
+        <li><strong>制作エンジン</strong><span>ティラノスクリプト</span></li>
+        <li><strong>プレイ時間</strong><span>約15分</span></li>
+        <li><strong>推奨環境</strong><span>PCブラウザ / 音声再生あり</span></li>
+      </ul>
+
+      <div class="actions">
+        <a class="button primary" href="kegaretori-game/index.html">ゲームを起動する</a>
+        <a class="button" href="kegaretori.html">作品ページへ戻る</a>
+      </div>
+
+      <p class="note">
+        読み込みに少し時間がかかる場合があります。画面が切り替わらない場合は、時間をおいて再読み込みしてください。
+      </p>
+    </section>
+  </main>
+</body>
+</html>
