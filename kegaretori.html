@@ -91,11 +91,13 @@
          画像内の赤ロゴがヘッダーに被って切れて見えるのを防ぐ */
       background-color: var(--black);
       background-image:
-        linear-gradient(180deg, rgba(5, 5, 6, .82) 0%, rgba(5, 5, 6, 0) 17%, rgba(5, 5, 6, .16) 56%, rgba(5, 5, 6, .60) 100%),
-        radial-gradient(circle at 50% 44%, rgba(181, 16, 27, .16), rgba(5, 5, 6, 0) 46%),
+        linear-gradient(180deg, rgba(5, 5, 6, .78) 0%, rgba(5, 5, 6, 0) 12%, rgba(5, 5, 6, .16) 56%, rgba(5, 5, 6, .60) 100%),
+        radial-gradient(circle at 50% 52%, rgba(181, 16, 27, .16), rgba(5, 5, 6, 0) 46%),
         url("ui_title_bg_logo.png");
       background-repeat: no-repeat;
-      background-position: center 62%;
+      /* 画像の上端を画面最上部から固定ピクセルで下げ、ヘッダー(約64px)の裏に
+         赤ロゴが潜り込まないようにする。%指定だとウィンドウ高さで位置が変わるため px で固定 */
+      background-position: center 72px;
       background-size: auto, auto, 100% auto;
     }
 
