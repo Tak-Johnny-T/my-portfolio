@@ -99,6 +99,7 @@
       letter-spacing: .16em;
       font-size: 13px;
       text-transform: uppercase;
+      text-align: center;
     }
 
     h1 {
@@ -106,6 +107,7 @@
       font-size: clamp(34px, 7vw, 68px);
       line-height: 1.05;
       letter-spacing: 0;
+      text-align: center;
     }
 
     .lead {
@@ -114,27 +116,33 @@
       font-size: 17px;
     }
 
-    .facts {
-      display: grid;
-      gap: 0;
-      margin: 32px 0;
-      padding: 0;
-      list-style: none;
-      border-top: 1px solid var(--line);
+    .notice {
+      margin: 30px 0;
+      padding: 22px 24px;
+      background: rgba(181, 16, 27, .08);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--red);
+      border-radius: 8px;
     }
 
-    .facts li {
-      display: grid;
-      grid-template-columns: 132px 1fr;
-      gap: 16px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-    }
-
-    .facts strong {
+    .notice-title {
+      margin: 0 0 12px;
       color: var(--red-bright);
       font-weight: 900;
+      letter-spacing: .04em;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .notice-list {
+      margin: 0;
+      padding-left: 1.2em;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .notice-list li {
+      margin: 6px 0;
     }
 
     .actions {
@@ -174,11 +182,6 @@
     }
 
     @media (max-width: 640px) {
-      .facts li {
-        grid-template-columns: 1fr;
-        gap: 2px;
-      }
-
       .actions {
         display: grid;
       }
@@ -197,25 +200,19 @@
     <section class="panel">
       <p class="eyebrow">Playable Novel Game</p>
       <h1>ケガレトリ<br>ノベルゲーム版</h1>
-      <p class="lead">
-        実際にブラウザでプレイできる完成版です。プレイ時間は約15分。音が出るため、再生環境にご注意ください。
-      </p>
-
-      <ul class="facts">
-        <li><strong>ジャンル</strong><span>短編ホラー / ノベルゲーム</span></li>
-        <li><strong>制作エンジン</strong><span>ティラノスクリプト</span></li>
-        <li><strong>プレイ時間</strong><span>約15分</span></li>
-        <li><strong>推奨環境</strong><span>PCブラウザ / 音声再生あり</span></li>
-      </ul>
-
-      <div class="actions">
-        <a class="button primary" href="kegaretori-game/index.html">ゲームを起動する</a>
-        <a class="button" href="kegaretori.html">作品ページへ戻る</a>
+      <div class="notice">
+        <p class="notice-title">【注意】</p>
+        <ul class="notice-list">
+          <li>音が出ます。再生環境にご注意ください。</li>
+          <li>人間関係トラブルや精神的恐怖の描写があります。苦手な方はご注意ください。</li>
+          <li>再生環境などによって読み込みに時間がかかる場合があります。</li>
+        </ul>
       </div>
 
-      <p class="note">
-        読み込みに少し時間がかかる場合があります。画面が切り替わらない場合は、時間をおいて再読み込みしてください。
-      </p>
+      <div class="actions">
+        <a class="button primary" href="kegaretori-game/index.html">ゲームを起動</a>
+        <a class="button" href="kegaretori.html">作品ページへ戻る</a>
+      </div>
     </section>
   </main>
 </body>
