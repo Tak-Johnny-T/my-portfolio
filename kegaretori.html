@@ -109,10 +109,18 @@
       pointer-events: none;
     }
 
-    .hero-inner,
     .section-inner {
       width: min(1120px, 100%);
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ヒーローの見出しは中央寄せの最大幅コンテナを解除し、画像の左下に寄せる */
+    .hero-inner {
+      width: min(760px, 100%);
+      margin: 0;
+      justify-self: start;
       position: relative;
       z-index: 1;
     }
