@@ -970,7 +970,7 @@ tf.clear_father = true;
 
 [playse storage="se_coin_offering.mp3" volume=70]
 [wait time=300]
-[playse storage="se_clap_twice.wav" volume=75]
+[playse storage="se_clap_twice.mp3" volume=75]
 
 それから奥の祠へ向かった。[p]
 
