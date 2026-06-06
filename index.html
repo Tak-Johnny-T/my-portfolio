@@ -95,12 +95,11 @@
       min-height: 94vh;
       display: grid;
       place-items: center;
-      position: relative;
       overflow: hidden;
       padding: 112px 24px 64px;
       background:
         linear-gradient(90deg, rgba(251, 250, 246, .94) 0%, rgba(251, 250, 246, .78) 45%, rgba(251, 250, 246, .46) 100%),
-        url("heroimage.png") center / cover no-repeat;
+        url("hero-stonebreaker.png") center / cover no-repeat;
     }
 
     .hero::after {
@@ -113,7 +112,6 @@
 
     .hero-inner {
       width: min(1120px, 100%);
-      position: relative;
       z-index: 1;
     }
 
@@ -153,10 +151,15 @@
     }
 
     rt {
-      font-size: .34em;
+      font-size: .35em;
       font-weight: 900;
-      letter-spacing: 0;
+      transform: translateY(-0.05em);
+      letter-spacing: .42em;
       color: inherit;
+    }
+
+    .hero-catch .accent rt {
+      letter-spacing: .66em;
     }
     .hero-copy {
       max-width: 720px;
@@ -212,13 +215,14 @@
       margin-bottom: 34px;
       border-bottom: 1px solid var(--line);
       padding-bottom: 18px;
+      position: relative;
     }
-
-    h2 {
+h2 {
       margin: 0;
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.2;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.1;
       letter-spacing: 0;
+      font-weight: 900;
     }
 
     .section-note {
@@ -312,30 +316,28 @@
     }
     .strengths {
       margin-top: 34px;
-      padding: 28px;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 8px;
     }
 
     .strengths h3 {
-      margin: 0 0 16px;
+      margin: 0 0 14px;
       font-size: 22px;
       line-height: 1.35;
+      font-weight: 900;
     }
 
     .strengths-list {
       display: grid;
-      gap: 14px;
+      gap: 10px;
       margin: 0;
-      padding: 0;
-      list-style: none;
+      padding-left: 1.3em;
+      list-style: disc;
       color: #33404f;
     }
 
     .strengths-list li {
-      padding-left: 16px;
-      border-left: 3px solid var(--teal);
+      padding-left: 2px;
+      font-size: 15px;
+      line-height: 1.8;
     }
 
     .works {
@@ -492,7 +494,7 @@
         min-height: 88vh;
         background:
           linear-gradient(180deg, rgba(251, 250, 246, .95) 0%, rgba(251, 250, 246, .82) 58%, rgba(251, 250, 246, .62) 100%),
-          url("heroimage.png") center / cover no-repeat;
+          url("hero-stonebreaker.png") center / cover no-repeat;
       }
 
       .section-heading,
@@ -516,8 +518,7 @@
       .work-item {
         grid-template-columns: 1fr;
       }
-
-      .external {
+.external {
         width: max-content;
       }
     }
@@ -543,8 +544,8 @@
         <p class="eyebrow">Scenario Writer / Story Planner</p>
         <h1>T.Johnny T.</h1>
         <p class="hero-catch">
-          「<ruby>そうそう<rt>ど真ん中！</rt></ruby>」と<br>
-          <span class="accent">「<ruby>そう来たか！<rt>想像以上</rt></ruby>」を届けます。</span>
+          「<ruby>そうそう<rt>ど真ん中</rt></ruby>！」と<br>
+          <span class="accent">「<ruby>そう来たか<rt>想像以上</rt></ruby>！」を届けます。</span>
         </p>
         <p class="hero-copy">
           ご依頼の狙いを的確に汲み取り、読む人の期待を超える物語体験へ。<br>
@@ -611,12 +612,17 @@
           <article class="skill">
             <div class="skill-mark">04</div>
             <h3>シナリオ執筆</h3>
-            <p>ゲーム、ノベル、イベント、ボイス台本など、媒体特性に合わせたテキストを執筆します。</p>
+            <p>ゲーム、ノベル、イベントなど、媒体特性に合わせたテキストを執筆します。</p>
           </article>
           <article class="skill">
             <div class="skill-mark">05</div>
             <h3>シナリオ監修</h3>
             <p>テキスト品質、世界観の整合性、キャラクターの声を確認し、改善提案や調整を行います。</p>
+          </article>
+          <article class="skill">
+            <div class="skill-mark">06</div>
+            <h3>ボイス台本作成</h3>
+            <p>声優様が演じやすく、収録現場でも使いやすい実戦的な台本を制作します。</p>
           </article>
         </div>
 
@@ -637,7 +643,7 @@
       <div class="section-inner">
         <div class="section-heading">
           <h2>WORKS</h2>
-          <p class="section-note">これまで参加させていただいた主なプロジェクトです。</p>
+          <p class="section-note">これまで参加させていただいた主なプロジェクトです。一部商業案件では本名名義で参加させていただいています。</p>
         </div>
 
         <div class="work-list">
