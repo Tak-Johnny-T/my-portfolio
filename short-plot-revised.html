@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>監修サンプル：短編プロット | T.Johnny T.</title>
+  <style>
+    :root {
+      --ink: #20242b;
+      --sub: #5f6874;
+      --paper: #f6f2ea;
+      --line: #d9d1c3;
+      --accent: #147a9c;
+      --accent-dark: #0b4f69;
+      --max: 920px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", Meiryo, sans-serif;
+      line-height: 1.92;
+      background: var(--paper);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 30;
+      background: rgba(246, 242, 234, 0.92);
+      border-bottom: 1px solid rgba(32, 36, 43, 0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+
+    .back-link {
+      color: var(--sub);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .page {
+      width: min(100% - 44px, var(--max));
+      margin: 0 auto;
+      padding: 112px 0 82px;
+    }
+
+    .sample-label {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .title-note {
+      display: block;
+      margin-top: 8px;
+      color: var(--accent-dark);
+      font-size: 0.48em;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .sample-switch {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .switch-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--accent-dark);
+      background: rgba(255, 253, 248, 0.52);
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1.25;
+      transition: color 150ms ease, background 150ms ease, border-color 150ms ease;
+    }
+
+    .switch-link:hover,
+    .switch-link.is-active {
+      border-color: var(--accent);
+      color: #fff;
+      background: var(--accent);
+    }
+
+    .hint {
+      margin: 14px 0 0;
+      color: var(--sub);
+      font-size: 13px;
+    }
+
+    .hint p {
+      margin: 0 0 8px;
+    }
+
+    .hint p:last-child {
+      margin-bottom: 0;
+    }
+
+    .review-doc {
+      position: relative;
+      margin-top: 34px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .source-row {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 20px;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(217, 209, 195, 0.76);
+    }
+
+    .source-row:last-of-type {
+      border-bottom: 0;
+    }
+
+    .source-label {
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .source-content {
+      min-width: 0;
+      color: #3f4750;
+      font-size: 15px;
+    }
+
+    .source-content p {
+      margin: 0 0 10px;
+    }
+
+    .source-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .characters {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .characters strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .plot-title {
+      margin: 42px 0 18px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--accent-dark);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .plot-body {
+      font-size: 15.5px;
+    }
+
+    .plot-body p {
+      margin: 0 0 22px;
+    }
+
+    .plot-part {
+      margin: 34px 0 8px;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 1.6;
+      letter-spacing: 0;
+    }
+
+    .plot-section:first-child .plot-part {
+      margin-top: 0;
+    }
+
+    .mark {
+      border: 0;
+      border-bottom: 2px solid rgba(20, 122, 156, 0.62);
+      border-radius: 4px;
+      padding: 1px 3px;
+      color: inherit;
+      background: #d9f3ff;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, box-shadow 150ms ease;
+    }
+
+    .mark[aria-expanded="true"] {
+      background: #a8e5ff;
+      box-shadow: 0 0 0 3px rgba(168, 229, 255, 0.42);
+    }
+
+    .mark-block {
+      display: block;
+      width: 100%;
+      padding: 8px 10px;
+      line-height: 1.85;
+    }
+
+    .dialogue-mark {
+      display: grid;
+      gap: 6px;
+      width: 100%;
+      margin: 0 0 8px;
+      padding: 10px 12px;
+      border-left: 3px solid rgba(20, 122, 156, 0.58);
+      line-height: 1.8;
+    }
+
+    .dialogue-mark p {
+      margin: 0;
+    }
+
+    .ref {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      margin-left: 3px;
+      margin-right: 4px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--accent);
+      font-size: 11px;
+      font-weight: 900;
+      vertical-align: text-top;
+    }
+
+    .block-ref {
+      margin: -4px 0 22px;
+    }
+
+    .dialogue {
+      margin: 0 0 22px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .dialogue li {
+      margin: 0 0 6px;
+    }
+
+    .popup {
+      position: absolute;
+      z-index: 20;
+      width: min(430px, calc(100vw - 32px));
+      border: 1px solid rgba(11, 79, 105, 0.22);
+      border-radius: 6px;
+      background: #fffdf8;
+      box-shadow: 0 22px 52px rgba(27, 31, 38, 0.24);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 130ms ease, transform 130ms ease;
+    }
+
+    .popup.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .popup::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 22px;
+      width: 14px;
+      height: 14px;
+      border-top: 1px solid rgba(11, 79, 105, 0.22);
+      border-left: 1px solid rgba(11, 79, 105, 0.22);
+      background: #fffdf8;
+      transform: rotate(45deg);
+    }
+
+    .popup-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 13px 15px 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .popup-kind {
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .popup-close {
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: #52606e;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .popup-body {
+      padding: 14px 16px 16px;
+    }
+
+    .popup-text p {
+      margin: 0 0 11px;
+      color: #4f4740;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .popup-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .review-note {
+      margin-top: 42px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+
+    .review-note h2 {
+      margin: 0 0 16px;
+      color: var(--accent-dark);
+      font-size: 18px;
+      line-height: 1.4;
+      letter-spacing: 0;
+    }
+
+    .review-note p {
+      margin: 0 0 14px;
+      color: #4f5966;
+      font-size: 14.5px;
+    }
+
+    .review-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .top-link {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 18;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 54px;
+      min-height: 42px;
+      padding: 9px 12px;
+      border: 1px solid rgba(11, 79, 105, 0.24);
+      border-radius: 6px;
+      color: var(--accent-dark);
+      background: rgba(255, 253, 248, 0.9);
+      box-shadow: 0 12px 30px rgba(27, 31, 38, 0.14);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .top-link:hover {
+      color: #fff;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .next-link-wrap {
+      margin-top: 28px;
+      text-align: center;
+    }
+
+    .next-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 22px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      color: #fff;
+      background: var(--accent);
+      font-size: 14px;
+      font-weight: 900;
+      text-decoration: none;
+      transition: background 150ms ease, border-color 150ms ease;
+    }
+
+    .next-link:hover {
+      border-color: var(--accent-dark);
+      background: var(--accent-dark);
+    }
+
+    @media (max-width: 620px) {
+      .nav {
+        padding: 13px 12px;
+      }
+
+      .brand {
+        font-size: 16px;
+      }
+
+      .back-link {
+        font-size: 12px;
+      }
+
+      .page {
+        width: min(100% - 24px, var(--max));
+        padding-top: 96px;
+      }
+
+      .switch-link {
+        flex: 1 1 150px;
+      }
+
+      .source-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .popup {
+        position: fixed;
+        left: 12px !important;
+        right: 12px;
+        bottom: 14px;
+        top: auto !important;
+        width: auto;
+      }
+
+      .popup::before {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+  <header class="site-header">
+    <nav class="nav" aria-label="サイト内ナビゲーション">
+      <a class="brand" href="index.html">T.Johnny T.</a>
+      <a class="back-link" href="index.html#portfolio">PORTFOLIOへ戻る</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <p class="sample-label">監修サンプル：短編プロット</p>
+    <h1>「海鳴りのポスト」<span class="title-note">【監修調整稿】</span></h1>
+    <nav class="sample-switch" aria-label="監修サンプル切り替え">
+      <a class="switch-link" href="short-plot-review.html">監修コメント付元原稿</a>
+      <a class="switch-link is-active" href="short-plot-revised.html" aria-current="page">監修調整稿</a>
+    </nav>
+    <div class="hint">
+      <p>実際に私が監修調整をしたものです。ハイライトの箇所を押すと、調整した意図のコメントが表示されます。</p>
+      <p>※今回は設定を大きく変更しておりますが、基本的に私が一方的に修正することはございません。</p>
+      <p>実際の流れとしては、まずお客様に私の監修内容を伝えつつ、お客様の伝えたい「メッセージ」、「キャラの魅力」、「こだわり」などをヒアリングし、ご希望であればプロット調整案を提案（監修調整稿を作成）させていただく、という流れが一般的です。</p>
+    </div>
+
+    <article class="review-doc" aria-label="短編プロット監修調整稿">
+      <section class="source-row">
+        <div class="source-label">ジャンル</div>
+        <div class="source-content">現代ドラマ</div>
+      </section>
+
+      <section class="source-row">
+        <div class="source-label">ログライン</div>
+        <div class="source-content">かつて兄を失った女子高生が、死者宛ての手紙に返事が届くという古いポストをめぐり、とある少年の喪失と、自分自身の未完了の別れに向き合う。</div>
+      </section>
+
+      <section class="source-row">
+        <div class="source-label">登場人物</div>
+        <div class="source-content">
+          <ul class="characters">
+            <li><button class="mark" type="button" data-comment="c1" aria-expanded="false"><strong>結衣：</strong>18歳。高校三年生の女の子。</button><span class="ref">1</span>元々静かな性格だが、５年前に海難事故で兄を亡くしてますます慎重で合理的な選択しかしなくなった。来春、大学進学で地元を離れる。</li>
+            <li><strong>帆高：</strong>結衣の兄。世界一の漁師になるのが夢で、才能に溢れる青年だったが、５年前に海洋学校の訓練中の海難事故で帰らぬ人となった。</li>
+            <li><button class="mark" type="button" data-comment="c2" aria-expanded="false"><strong>灯：</strong>10歳。母を病気で亡くした小学四年生の男の子。</button><span class="ref">2</span></li>
+            <li><button class="mark" type="button" data-comment="c3" aria-expanded="false"><strong>久坂：</strong>64歳。老郵便局長。長年町を見守り続けてきた。</button><span class="ref">3</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="plot-title">プロット本文</div>
+      <div class="plot-body">
+        <section class="plot-section">
+          <h2 class="plot-part">1（起）</h2>
+          <p>海辺の小さな町。その町には、「海鳴りのポスト」と呼ばれる古いポストがある。<button class="mark" type="button" data-comment="c4" aria-expanded="false">十数年前の大地震で地形が変わり、今では干潮時だけ海岸の岩場に姿を見せる。郵便局による運用はとうに廃止されていたが「そのポストに投函すると亡くなった人から返事が来る」という噂があった。</button><span class="ref">4</span></p>
+
+          <p>ある日の正午前後。灯が一通の手紙を海鳴りのポストに投函する。その様子を、岩場を見下ろせる道路から眺める結衣。<button class="mark" type="button" data-comment="c5" aria-expanded="false">灯が結衣を見つけて駆け寄ってくる。「お母さんに手紙を書いたんだ。読んでくれるかな」と無邪気に笑う灯。結衣は「そっか。届くといいね」と笑い、灯と別れる。しかし結衣は知っていた。死んだ人に手紙は届かないことを。返事が来ることもないことを。</button><span class="ref">5</span></p>
+
+          <p><button class="mark" type="button" data-comment="c6" aria-expanded="false">兄を回想する結衣。</button><span class="ref">6</span>兄は世界一の漁師になるのが夢で、才能に溢れる青年だった。冒険好きで好奇心旺盛な兄。正反対の性格の結衣はついて行けないと思いつつ憧れの存在だった。しかし５年前に海洋学校の訓練中、海難事故で帰らぬ人となった。</p>
+
+          <p>兄との最後の会話は、途中で終わってしまった（結衣の方から「忙しいから後で」などの理由で切り上げてしまった）。「あの時、兄は私に何を伝えたかったのだろうか？」それは結衣の心にいつまでも引っかかっている。</p>
+
+          <p>ポストの噂を知っていた結衣は、兄宛ての手紙を何度も投函した。「お兄ちゃん、あの時は話を聞いてあげれなくてごめんね」「お兄ちゃんは、何を言おうとしてたの？」「お返事ください、お兄ちゃん」。しかし一度も返信が来る事はなかった。</p>
+
+          <p>結衣は、灯の背中を見送りながらつぶやいた。「返事は、待っても来ないんだよ」</p>
+        </section>
+
+        <section class="plot-section">
+          <h2 class="plot-part">2（承）</h2>
+          <p>しかし、次の日。灯は母からの手紙が届いたと大喜びで結衣に伝えに来た。結衣は驚くと共に怪しむ。しかし実際、灯の手元には母の口調に似た短い返事が届いていた。その噂は小さな町にあっという間に広まり、人々はポストに手紙を投函するようになった。</p>
+
+          <p>結衣も心が揺れた。兄にもう一度手紙を書こうか。しかしすぐに首を横に振った。「淡い希望を抱くのはもうやめよう。もう、がっかりしたくない」</p>
+
+          <p><button class="mark" type="button" data-comment="c7" aria-expanded="false">２週間が経った。灯のあの一通の他に、返信は来なかった。灯の返信にも、返事は帰ってこなかった。</button><span class="ref">7</span></p>
+
+          <p>ある日、結衣は灯が友達と取っ組み合いの喧嘩をしている場面に遭遇する。相手の子は「死んだ人から手紙が来るとか嘘つくな！」と食い掛っている。なんとか双方をなだめる結衣。相手の子は立ち去る。</p>
+
+          <p>灯は「嘘じゃない。本当に手紙が届いたんだ。結衣おねえちゃんも見たでしょ？」と泣きじゃくる。しかし、灯が受け取った手紙は、大切に引き出しにしまっていたのにいつの間にか消えてしまっていた。灯は「きっとお母さんはまた返事をくれる」と言って、走り去る。</p>
+
+          <p>海を見下ろす丘の上の小さな郵便局にやってきた結衣。町の唯一の郵便局員、久坂に話を聞きに来た。放棄されているとはいえポストは施錠されている。中身を確認できるのは鍵を持つ郵便局員のみ。返事を書いているのが久坂ではないかと少し疑っていた結衣だが、達筆の久坂の筆跡と灯が受け取った手紙の筆跡は似ても似つかない。</p>
+
+          <p><button class="mark" type="button" data-comment="c8" aria-expanded="false">久坂は笑って、結衣に昔の話を始める。</button><span class="ref">8</span>当初ポストの噂が流れ始めた時、それはもう膨大な手紙が毎日投函されていた。当然、回収されない手紙に返事が来るわけがない。水面下のポストから手紙が海に流れ出し、それを岩場で拾い集めることがかつての久坂の日常茶飯事だったと笑う。</p>
+
+          <p>しかしそんな中、実際に死者からの返信を受け取ったケースを何度か見たと久坂は語る。久坂が調べた結果、返事が届いた手紙はいずれも、特定の時間帯に投函されたものだった。特定の時間帯。それは、町で「海鳴りの昼」と呼ばれる、大潮の日の正午前後、潮がもっとも引いた時間だ。</p>
+
+          <p>震災で妻を失った久坂は、海鳴りの昼に密かに手紙を投函してみた。すると次の日、妻からの手紙が自宅のポストに届いたのだ。結衣は「今でも妻との文通は続けているのか」と久坂に尋ねる。しかし久坂は首を横に振り、寂しげに微笑んだ。「『私に手紙を書くよりも、あなたの人生を生きて』と書かれてな。それ以来、手紙はこなくなったよ」</p>
+
+          <p>結衣は「どうしてこのことを公表しなかったのか」と尋ねる。久坂は語る。「これは公にするようなものじゃない。必要な人が必要な時にめぐり合わせる運命のようなものだ」「それに、不思議なことに死者からの手紙は一日経つと消えてしまう。証拠は残らない」</p>
+
+          <p>半信半疑ながらも、灯のことを相談する結衣。「灯は毎日ポストに投函している。いずれ海鳴りの昼に返信がもらえることに気づくだろう」「死者との会話に囚われて自分の人生を生きることをないがしろにしてしまわないか心配」</p>
+
+          <p>久坂は語る。「その心配はもっともだ。しかし死者との会話が必ずしも後ろ向きとは限らない」「過去に決着をつけ、一歩前に進むきっかけになることもある」「なんにせよ、心の整理をつけるのは自分自身だ。気のすむまでやらせるしかない」</p>
+
+          <p>結衣は、いつまでも過去に囚われている自分のことを言われている気分になり、挨拶もそこそこに立ち去る。</p>
+
+          <p>その後。毎日海鳴りのポストに手紙を投函し続ける灯。結衣の心配とは裏腹に、灯は生き生きとした生活を送っている。たとえ返事が返ってこなくとも、母への手紙を書くことが生きる張り合いになっている様子だ。友達とも仲直りし、学校生活も楽しそうだ。</p>
+
+          <p><button class="mark mark-block" type="button" data-comment="c9" aria-expanded="false">灯の精神的成長を見て微笑ましく思う反面、進歩のない自分を振り返ってちょっとした自己嫌悪に陥る結衣。自分は来春、この町を出ていく。このまま町を去っていいのか。兄の言葉を思い出す結衣。「俺は悔いのない生き方をしたい。たとえ失敗しても、やらずに後悔するのだけはいやだ」</button><span class="ref">9</span></p>
+        </section>
+
+        <section class="plot-section">
+          <h2 class="plot-part">3（転）</h2>
+          <p>次の海鳴りの昼。昼間なのに真っ暗な空。嵐が近づいている。結衣が窓の外を眺めていると、嵐の中黄色い雨合羽を着て一人海岸に向かう灯の姿が目に入る。慌てて家を飛び出し、灯の後を追う結衣。</p>
+
+          <p>兄が帰ってこなかった日も、こんな台風だった。あの日の不安と恐怖の気持ちがよみがえる。それを振り払うように、灯の後を追う結衣。</p>
+
+          <p>岩場で灯に追いつく。ポストまではまだ距離がある。「こんな日にここに来ちゃダメじゃない！」と叱る結衣。<button class="mark" type="button" data-comment="c10" aria-expanded="false">「お母さんが返事をくれるまで出し続けるんだ！」と結衣の手を振り払う灯。</button><span class="ref">10</span></p>
+
+          <ul class="dialogue">
+            <li>結衣「お母さんはこんな危険なことをしてまで手紙がほしいなんて思ってないよ」</li>
+            <li>灯「でもこれが僕の生きがいなんだ」</li>
+            <li>灯「手紙をやめたら、また寂しい毎日に戻っちゃうじゃないか」</li>
+            <li>灯「お母さんとの思い出を捨てるなんて、忘れるなんてできない、したくない」</li>
+            <li>結衣「捨てなくていい。忘れなくていい。私たちは思い出を抱えたまま一歩前に進むんだよ」</li>
+          </ul>
+
+          <p>結衣は懐から手紙を取り出す。兄宛ての手紙だった。</p>
+
+          <div class="dialogue mark dialogue-mark" role="button" tabindex="0" data-comment="c11" aria-expanded="false">
+            <p>灯「おねえちゃんも投函するの…？」</p>
+            <p>結衣「お兄ちゃんに話したいこと、聞きたいこと、たくさんある。目一杯書いちゃった」</p>
+            <p>結衣「でも、出したらそれでおしまい。返事はいらない。……何なら出さなくてもいい」</p>
+            <p>灯「――どうして？」</p>
+            <p>結衣「想いを伝えられればそれでいい。私は私の人生を生きなきゃ」</p>
+            <p>結衣「それが生きてる人間のやるべきことだと思うから」</p>
+            <p>灯「……でも、届かなかったら書いた意味ないよ」</p>
+            <p>結衣「届くかどうかじゃない。ちゃんと伝えようとすることが、私たちにできることなんだと思う」</p>
+            <p>灯「結衣おねえちゃん……」</p>
+          </div>
+          <div class="block-ref"><span class="ref">11</span></div>
+
+          <p>そこにやってきたのは、二人を心配して見に来た久坂だった。</p>
+
+          <ul class="dialogue">
+            <li>久坂「まったく、無茶をしよる。まさかと思ったが来てみて正解だった」</li>
+            <li><button class="mark" type="button" data-comment="c12" aria-expanded="false">久坂「その手紙、私が預かろう。ここまで来たなら、最後の始末は年寄りの仕事だ」</button><span class="ref">12</span></li>
+            <li>結衣「久坂さん…」</li>
+            <li>久坂「なに、私は何十年もあのポストに通っていたんだ。心配無用だ」</li>
+          </ul>
+
+          <p>久坂は強風と波しぶきの中、手紙を投函してくれる。久坂が二人のところに戻ってきて「これで二人とも帰れるな」と尋ねる。結衣と灯はどこか晴ればれとした表情で頷く。</p>
+
+          <p>その瞬間。<button class="mark" type="button" data-comment="c13" aria-expanded="false">荒々しい波がポストをもぎとって海に引きずり込んでしまう。</button><span class="ref">13</span>「あっ！ポストが！！」三人は波が攫っていったポストの跡を茫然と見つめるのだった。</p>
+        </section>
+
+        <section class="plot-section">
+          <h2 class="plot-part">4（結）</h2>
+          <p>それから数年後。岩場のポストは跡形もない。町の人々の記憶からも忘れ去られつつあった。大学生になった結衣は、数年振りに地元を訪れ、ポストの跡地を見ていた。</p>
+
+          <p>そこに中学生になった灯がやってきて、当時の思い出話に花を咲かせる。<button class="mark" type="button" data-comment="c14" aria-expanded="false">その会話からは、あの時の手紙の返事が来たのかどうかは定かではない。</button><span class="ref">14</span>ただ、二人があの日を境に自分の人生を再び歩み始めたことは確かだった。</p>
+
+          <p>二人は、定年退職して今は嘱託郵便局員として働いている久坂に会いにいくため、笑って話をしながら岩場を去っていくのだった。</p>
+        </section>
+
+      </div>
+
+      <aside class="popup" id="commentPopup" role="dialog" aria-label="調整意図コメント">
+        <div class="popup-head">
+          <span class="popup-kind" id="popupKind"></span>
+          <button class="popup-close" type="button" aria-label="コメントを閉じる">×</button>
+        </div>
+        <div class="popup-body">
+          <div class="popup-text" id="popupText"></div>
+        </div>
+      </aside>
+    </article>
+
+    <section class="review-note" aria-label="調整まとめ">
+      <h2>調整まとめ</h2>
+      <p>監修前のプロットでは、設定の魅力は強い一方で、主人公の年齢・職業、ポストの運用、久坂の役割、灯が危険行動へ向かう理由にやや説明不足がありました。調整稿では、結衣を高校三年生に変更し、進学で町を離れる期限を置くことで、思春期の揺れと「このまま去っていいのか」という葛藤を物語の中心に据えています。</p>
+      <p>また、ポストは地震による地形変化と「海鳴りの昼」という条件を加え、現実的な理由付けと幻想性を両立させました。久坂は元漁師ではなく老郵便局長にすることで、ポストの管理者、町の記憶を知る語り部、結衣と灯を見守る大人という複数の役割を自然に担えるようにしています。</p>
+      <p>クライマックスでは、結衣が灯を止め、自分自身の手紙への答えを言葉にする流れへ変更しました。灯を救うことが結衣自身の救済につながり、久坂が最後の投函を引き受けることで大人としての責任も描いています。最後にポストが海へ消えることで、過去や未練の象徴を手放し、二人が未来へ進み始めたことを余韻として残す構成にしました。</p>
+    </section>
+
+    <div class="next-link-wrap">
+      <a class="next-link" href="short-plot-review.html">監修コメント付の元プロットはこちら</a>
+    </div>
+  </main>
+
+  <a class="top-link" href="#top">TOP</a>
+
+  <script>
+    const comments = {
+      c1: {
+        kind: "主人公設定の調整",
+        paragraphs: [
+          "主人公を31歳の郵便局員から18歳の高校三年生に変更しました。幅広い読者層に共感されやすく、思春期ならではの心の揺れや、地元を離れる前の不安を表現しやすくするためです。",
+          "来春の進学という期限を置くことで、結衣が過去に向き合わないまま町を去ろうとしている状態も分かりやすくなります。"
+        ]
+      },
+      c2: {
+        kind: "灯の役割",
+        paragraphs: [
+          "灯は、亡くなった母親を恋しがる少年というシンプルな設定に整理しました。",
+          "年齢を10歳に下げることで、母への思慕や手紙への期待をまっすぐに出しやすくし、結衣が守ろうとする対象としても機能しやすくしています。"
+        ]
+      },
+      c3: {
+        kind: "久坂の役割",
+        paragraphs: [
+          "久坂は老郵便局長に変更しました。ポストの鍵や過去の運用を知っている立場にすることで、物語に自然に組み込みやすくしています。",
+          "同時に、結衣と灯を見守る大人、町の記憶を語る人物、最後に危険を引き受ける人物として、複数の役割を持たせています。"
+        ]
+      },
+      c4: {
+        kind: "ポスト設定の理由付け",
+        paragraphs: [
+          "干潮時だけ現れるポストについて、十数年前の大地震による地形変化という理由付けを加えました。",
+          "郵便局による運用は廃止済みと明示することで、現実的な違和感を抑えつつ、町に残った噂としての不思議さを残しています。"
+        ]
+      },
+      c5: {
+        kind: "人物関係とフック",
+        paragraphs: [
+          "灯が結衣に自然に駆け寄ることで、二人が昔からの近所の知り合いであることを短く示しています。",
+          "同時に、結衣が表面上は優しく返しながら、内心では死者から返事が来ないことを知っている、というわだかまりを匂わせ、物語に引き込むフックにしています。"
+        ]
+      },
+      c6: {
+        kind: "結衣の過去",
+        paragraphs: [
+          "結衣のわだかまりの正体と、結衣自身もすでにポストを試していたことを提示しています。これにより、結衣の合理的な性格や灯への複雑な対応に納得感が出ます。",
+          "ただし、シナリオ化する際は回想を長くしすぎない方がよいです。この場面ですべてを語らず、兄との記憶をいくつかのシーンに分けて見せる方法も有効です。"
+        ]
+      },
+      c7: {
+        kind: "奇跡の条件",
+        paragraphs: [
+          "死者からの手紙には条件がある、という匂わせを入れています。",
+          "毎回返事が来るわけではないと示すことで、奇跡の安売りを避け、ポストの不思議さやミステリアスな印象を保っています。"
+        ]
+      },
+      c8: {
+        kind: "説明場面の注意点",
+        paragraphs: [
+          "久坂の語りでポストの過去を説明する場面です。プロット上では必要な情報をまとめていますが、シナリオ化する際は設定説明ターンに見えない工夫が必要です。",
+          "久坂の回想、町の人の証言、過去の手紙の描写などを交えると、情報を自然に見せながら町の歴史や久坂の感情も伝えやすくなります。"
+        ]
+      },
+      c9: {
+        kind: "結衣の変化",
+        paragraphs: [
+          "灯の成長を見た結衣が、自分だけが過去に足を止めていることに気づく場面です。兄の言葉を思い出すことで、一歩踏み出す決意へつなげています。",
+          "シナリオ化する際は、ここで結衣が何に自己嫌悪し、何を怖がっているのかをもう少し深掘りすると、クライマックスでの台詞がより強く響きます。"
+        ]
+      },
+      c10: {
+        kind: "灯の感情",
+        paragraphs: [
+          "灯の行動理由を、母親への思慕という共感しやすい感情に整理しました。",
+          "母からの返事を求める気持ちが強くなるほど、結衣が止める必然性も高まり、クライマックスの感情の衝突が分かりやすくなります。"
+        ]
+      },
+      c11: {
+        kind: "クライマックスの答え",
+        paragraphs: [
+          "結衣が過去と向き合い、自分なりの答えを出したことを台詞で示す場面です。",
+          "返事が来るかどうかではなく、想いを伝えようとすることに意味がある、という結衣の変化を灯に渡しています。同じ心の傷を持つ灯を救うことが、結衣自身を救うことにもつながります。"
+        ]
+      },
+      c12: {
+        kind: "大人の責任",
+        paragraphs: [
+          "久坂を、真実を知る大人として結衣と灯を危険から守る立場に置きました。",
+          "結衣が答えを出すだけで終わらせず、久坂が最後の行動を引き受けることで、読者に安心感と納得感を与える狙いです。"
+        ]
+      },
+      c13: {
+        kind: "象徴の消失",
+        paragraphs: [
+          "過去や未練の象徴であるポストが消えることで、結衣と灯が未来へ進むことを表しています。",
+          "ポストを残して役割を変える結末よりも、二人が自分の足で歩き始める印象を強める構成です。"
+        ]
+      },
+      c14: {
+        kind: "余韻の設計",
+        paragraphs: [
+          "あの時の手紙の返事が来たのかどうかを明言しないことで、読者に想像の余地を残しています。",
+          "重要なのは奇跡の有無ではなく、二人があの日を境に再び自分の人生を歩み始めたことです。多くを語らせず、会話の端々から成長を感じさせることで、すがすがしい読後感につなげています。"
+        ]
+      }
+    };
+
+    const marks = document.querySelectorAll(".mark");
+    const popup = document.getElementById("commentPopup");
+    const popupKind = document.getElementById("popupKind");
+    const popupText = document.getElementById("popupText");
+    const closeButton = document.querySelector(".popup-close");
+    let activeMark = null;
+
+    function closePopup() {
+      popup.classList.remove("is-open");
+      marks.forEach(mark => mark.setAttribute("aria-expanded", "false"));
+      activeMark = null;
+    }
+
+    function openPopup(mark) {
+      const data = comments[mark.dataset.comment];
+      popupKind.textContent = data.kind;
+      popupText.innerHTML = data.paragraphs.map(text => `<p>${text}</p>`).join("");
+      marks.forEach(item => item.setAttribute("aria-expanded", String(item === mark)));
+
+      const docRect = document.querySelector(".review-doc").getBoundingClientRect();
+      const markRect = mark.getBoundingClientRect();
+      const top = markRect.bottom - docRect.top + 12;
+      const left = Math.min(
+        Math.max(markRect.left - docRect.left, 16),
+        Math.max(16, docRect.width - 450)
+      );
+
+      popup.style.top = `${top}px`;
+      popup.style.left = `${left}px`;
+      popup.classList.add("is-open");
+      activeMark = mark;
+    }
+
+    marks.forEach(mark => {
+      mark.addEventListener("click", event => {
+        event.stopPropagation();
+        if (activeMark === mark && popup.classList.contains("is-open")) {
+          closePopup();
+        } else {
+          openPopup(mark);
+        }
+      });
+
+      if (mark.tagName !== "BUTTON") {
+        mark.addEventListener("keydown", event => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            mark.click();
+          }
+        });
+      }
+    });
+
+    closeButton.addEventListener("click", event => {
+      event.stopPropagation();
+      closePopup();
+    });
+
+    popup.addEventListener("click", event => {
+      event.stopPropagation();
+    });
+
+    document.addEventListener("click", closePopup);
+
+    window.addEventListener("resize", () => {
+      if (activeMark) {
+        openPopup(activeMark);
+      }
+    });
+  </script>
+</body>
+</html>

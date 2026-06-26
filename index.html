@@ -281,44 +281,8 @@ h2 {
       font-size: 14px;
     }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .skill {
-      min-height: 190px;
-      padding: 24px;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-    }
-
-    .skill-mark {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 16px;
-      border-radius: 8px;
-      background: rgba(15, 139, 141, .12);
-      color: var(--teal);
-      font-weight: 900;
-    }
-
-    .skill h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-    }
-
-    .skill p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
     .strengths {
-      margin-top: 34px;
+      margin-top: 0;
     }
 
     .strengths h3 {
@@ -340,6 +304,88 @@ h2 {
     .strengths-list li {
       padding-left: 2px;
       font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .service {
+      background: #f1eee7;
+    }
+
+    .service-notes {
+      display: grid;
+      gap: 6px;
+      margin: -12px 0 30px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .service-notes p {
+      margin: 0;
+    }
+
+    .service-menu {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 34px;
+      border-top: 1px solid var(--line);
+    }
+
+    .service-item {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 18px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-number {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .12em;
+    }
+
+    .service-item h3 {
+      margin: 0 0 4px;
+      font-size: 20px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .service-price {
+      margin: 0 0 8px;
+      color: var(--amber);
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .service-item p:last-child {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .service-flow-block {
+      margin-top: 34px;
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+    }
+
+    .service-flow-block h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .service-flow {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding-left: 1.3em;
+      color: #33404f;
+      font-size: 14px;
       line-height: 1.8;
     }
 
@@ -405,22 +451,6 @@ h2 {
     .work-desc {
       margin: 0;
       color: rgba(255, 255, 255, .82);
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .tag {
-      padding: 4px 9px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, .11);
-      color: rgba(255, 255, 255, .78);
-      font-size: 12px;
-      font-weight: 700;
     }
 
     .external {
@@ -515,7 +545,7 @@ h2 {
         margin-bottom: 28px;
       }
 
-      .skills-grid {
+      .service-menu {
         grid-template-columns: 1fr;
       }
 
@@ -537,6 +567,7 @@ h2 {
         <a href="#skills">SKILLS</a>
         <a href="#works">WORKS</a>
         <a href="#portfolio">PORTFOLIO</a>
+        <a href="#service">SERVICE</a>
         <a href="#contact">CONTACT</a>
       </nav>
     </div>
@@ -593,45 +624,22 @@ h2 {
     <section id="skills">
       <div class="section-inner">
         <div class="section-heading">
-          <h2>SKILLS</h2>
+          <h2>SKILLS and STRENGTHS</h2>
 
-        </div>
-
-        <div class="skills-grid">
-          <article class="skill">
-            <h3><span class="skill-mark">01</span>世界観構築</h3>
-            <p>「もっと知りたい」「ワクワクする」と思わせる世界観・設定を構築し、制作チームでわかりやすく共有できる形に落とし込みます。</p>
-          </article>
-          <article class="skill">
-            <h3><span class="skill-mark">02</span>キャラクター設計</h3>
-            <p>バックボーンや行動原理、関係性を深掘りし、魂の籠ったキャラクターを生み出します。</p>
-          </article>
-          <article class="skill">
-            <h3><span class="skill-mark">03</span>プロット制作</h3>
-            <p>全体の起承転結から各話の展開まで、ユーザーの感情を動かす緻密なプロットを立案します。</p>
-          </article>
-          <article class="skill">
-            <h3><span class="skill-mark">04</span>シナリオ執筆</h3>
-            <p>メイン、限定イベント、キャラエピ、その他フレテキなどトーン＆マナーに合わせた執筆を行います。</p>
-          </article>
-          <article class="skill">
-            <h3><span class="skill-mark">05</span>シナリオ監修</h3>
-            <p>テキスト品質管理、世界観・設定の齟齬チェック、キャラクターの魅力を更に引き出すディレクションを行います。</p>
-          </article>
-          <article class="skill">
-            <h3><span class="skill-mark">06</span>ボイス台本作成</h3>
-            <p>声優様が演じやすく、プレイヤーの印象に残る台本を制作します。</p>
-          </article>
         </div>
 
         <div class="strengths">
-          <h3>STRENGTHS</h3>
           <ul class="strengths-list">
+            <li>世界観・設定の構築から、制作チームで扱いやすい資料化まで対応します。</li>
+            <li>キャラクターのバックボーン、行動原理、関係性を深掘りし、会話や感情線に落とし込めます。</li>
+            <li>全体構成、各話プロット、クライマックス設計など、ユーザーの感情を動かす流れを整理できます。</li>
+            <li>メインシナリオ、限定イベント、キャラクターエピソード、フレーバーテキスト、ボイス台本など、媒体に合わせた文体で執筆します。</li>
+            <li>テキスト品質管理、世界観・設定の齟齬チェック、キャラクターの魅力を引き出す監修・ディレクションに対応します。</li>
             <li>限られた期間で世界観やキャラクターを理解し、魅力的なシナリオへ落とし込めます。コラボシナリオなど、IPを跨いだ作品の執筆・調整も得意としています。</li>
             <li>ご希望に沿った制作はもちろん、言語化されていない潜在的な要望まで丁寧に汲み取り、プロジェクトの価値を高める提案を心がけています。</li>
             <li>制作過程でのリテイクや細かなフィードバックにも、柔軟かつ迅速に対応します。</li>
             <li>SF、ファンタジー、サイバーパンク、恋愛、ミステリー、ホラー寄りの短編など、幅広いジャンルに対応可能です。</li>
-            <li>スマホアプリ、コンシューマーゲーム、ノベルゲーム、小説、ボイス台本など、媒体に合わせた最適な文体と構成を調整します。</li>
+            <li>スマホアプリ、コンシューマーゲーム、ノベルゲーム、小説など、媒体に合わせた最適な文体と構成を調整します。</li>
           </ul>
         </div>
       </div>
@@ -653,10 +661,6 @@ h2 {
                 常駐ライターとして参加。
                 キャラクターエピソードの執筆などを担当しました。
               </p>
-              <div class="tag-row">
-                <span class="tag">Game Scenario</span>
-                <span class="tag">Character Episode</span>
-              </div>
             </div>
             <a class="external" href="https://worldflipper.jp/" target="_blank" rel="noopener noreferrer">公式サイト</a>
           </article>
@@ -669,10 +673,6 @@ h2 {
                 常駐ライターとして参加。
                 シナリオ執筆などを担当しました。
               </p>
-              <div class="tag-row">
-                <span class="tag">Game Scenario</span>
-                <span class="tag">RPG</span>
-              </div>
             </div>
             <a class="external" href="https://www.jp.square-enix.com/octopathtraveler_SP/" target="_blank" rel="noopener noreferrer">公式サイト</a>
           </article>
@@ -706,15 +706,84 @@ h2 {
                 神社、穢れ、選択の違和感を軸にした短編ホラー寄りノベルゲーム。
                 企画、プロット、シナリオ、演出調整を担当。短い尺の中で不穏さと余韻を残す作品として制作しています。
               </p>
-              <div class="tag-row">
-                <span class="tag">Original</span>
-                <span class="tag">Novel Game</span>
-                <span class="tag">Horror</span>
-                <span class="tag">Scenario</span>
-              </div>
             </div>
             <a class="external" href="kegaretori.html">作品ページ</a>
           </article>
+
+          <article class="work-item">
+            <div>
+              <h3 class="work-title">海鳴りのポスト</h3>
+              <p class="work-meta">プロット監修／調整稿サンプル</p>
+              <p class="work-desc">
+                私が実際に監修した短編プロットです。
+                設定の説得力、人物の役割、クライマックスの設計を中心に監修コメントを入れ、調整稿まで提示しています。
+              </p>
+            </div>
+            <a class="external" href="short-plot-review.html">サンプルを見る</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="service" class="service">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>SERVICE</h2>
+          <p class="section-note">商業エンタメIPでのシナリオ経験をもとに、キャラクターの会話設計、短編ボイス台本、YouTubeアニメ、Webtoon・漫画原作、企業/教育向けストーリー台本の設計・執筆・監修を行います。</p>
+        </div>
+
+        <div class="service-notes">
+          <p>※金額は目安です。企画内容や事前資料の量等によって金額（＝工数）は変動いたします。</p>
+          <p>※その時の稼働状況によっては対応できない場合がございます。あらかじめご了承ください。</p>
+        </div>
+
+        <div class="service-menu" aria-label="Service menu">
+          <article class="service-item">
+            <span class="service-number">01</span>
+            <div>
+              <h3>シナリオ監修（単発）</h3>
+              <p class="service-price">5万円〜</p>
+              <p>単発で、脚本構成・ボイス台本・キャラ造形等の監修を行います。</p>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <span class="service-number">02</span>
+            <div>
+              <h3>シナリオ監修（継続）</h3>
+              <p class="service-price">15万円〜／月</p>
+              <p>特定のプロジェクト等において、脚本構成・ボイス台本・キャラ造形等の監修を継続して行います。</p>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <span class="service-number">03</span>
+            <div>
+              <h3>短編シナリオ制作</h3>
+              <p class="service-price">10万円〜</p>
+              <p>ボイスドラマ、VTuber向け台本、YouTubeアニメ、漫画動画など、短尺で印象に残る台本を制作します。</p>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <span class="service-number">04</span>
+            <div>
+              <h3>企画立案</h3>
+              <p class="service-price">30万円〜</p>
+              <p>世界観、キャラクター関係、初回構成、シリーズ展開の土台を整理し、制作開始できる形に落とし込みます。</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="service-flow-block">
+          <h3>進め方</h3>
+          <ol class="service-flow">
+            <li>お問い合わせ</li>
+            <li>内容確認・お打ち合わせ</li>
+            <li>お見積り</li>
+            <li>条件確定後に制作開始</li>
+            <li>提出→FB対応→最終納品</li>
+          </ol>
         </div>
       </div>
     </section>
