@@ -3,7 +3,8 @@
 [hidemenubutton]
 [stopbgm time=300]
 [deffont face="Yu Mincho, 游明朝, YuMincho, ＭＳ 明朝, MS Mincho, serif"]
-[bg storage="ui_title_bg_logo.png" time=100]
+;【軽量化 2026-07-22】1.26MBのPNGからJPEG(0.11MB)へ差し替え。起動時ロードの短縮。
+[bg storage="ui_title_bg_logo.jpg" time=100]
 [preload storage="./data/image/ui_title_start.png" wait="true" single_use="false"]
 [preload storage="./data/image/ui_title_start_hover.png" wait="true" single_use="false"]
 [preload storage="./data/image/ui_title_start_down.png" wait="true" single_use="false"]

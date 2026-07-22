@@ -1104,7 +1104,10 @@ tf.clear_father = true;
 20年以上前の過疎掲示板のログ。[l][r]
 その中の、たった一つの書き込み。[p]
 
-[l]
+;【不具合修正 2026-07-22】ここに単独の [l] があった。
+;直前の [p] でクリック待ち→改ページで枠が空になり、そこで [l] が再びクリック待ちになるため
+;「2回クリックしないと進まない・1回目は無反応に見える」状態だった（実況動画で発覚）。
+;間は直後の [wait time=800] が担っているので [l] は不要。
 [wait time=800]
 > 「ケガレトリで神になるってのは[r]
 > つまり人柱になるってこと」[p]
@@ -1958,26 +1961,53 @@ tf.clear_father = true;
 [bg storage="bg_black.png" time=0]
 [mask_off time=1000]
 [wait time=600]
+;【改修 2026-07-22】クレジットを2画面に分割し、「一定時間経過 または クリック」で進むようにした。
+;実況者が「自動で流れるもの」と誤解して待ち続けた事例があったため。
+;
+;実装上の注意：このバージョンの [wait] は内部で stronglyStop() を呼ぶためクリックを受け付けない
+;（canskip 属性も存在しない）。そこで全画面の透明ボタン＋[s] で待機し、
+;同時に setTimeout で jump を予約する二段構えにしている。
+;**ジャンプ先の先頭では必ず clearTimeout すること**（クリックで進んだ後にタイマーが発火する二重遷移を防ぐ）。
+;画面下の「クリックで進む」表示は、操作可能であることを明示するための本命の対策。
+
+;--- 「完」 ---
 [ptext layer="0" page="fore" name="end_mark" x=0 y=290 width=1280 align=center size=72 color=0xffffff text="完"]
-[l]
+[button graphic="transparent_button.png" folder="image" x=0 y=0 width=1280 height=720 target="*credits_p1"]
+[iscript]
+tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag("jump", {target:"*credits_p1"}); }, 4000);
+[endscript]
+[s]
+
+*credits_p1
+[iscript]
+if (tf.cred_timer) { clearTimeout(tf.cred_timer); tf.cred_timer = null; }
+[endscript]
+[clearfix]
 [free layer="0" page="fore" name="end_mark"]
 [wait time=300]
-[ptext layer="0" page="fore" name="credit_title" x=0 y=70 width=1280 align=center size=34 color=0xffffff text="CREDITS"]
-[ptext layer="0" page="fore" name="credit_01" x=0 y=135 width=1280 align=center size=22 color=0xffffff text="立ち絵、背景"]
-[ptext layer="0" page="fore" name="credit_02" x=0 y=170 width=1280 align=center size=22 color=0xffffff text="GPT Image 2"]
-[ptext layer="0" page="fore" name="credit_03" x=0 y=235 width=1280 align=center size=22 color=0xffffff text="BGM"]
-[ptext layer="0" page="fore" name="credit_04" x=0 y=270 width=1280 align=center size=21 color=0xffffff text="DOVA-SYNDROME"]
-[ptext layer="0" page="fore" name="credit_05" x=0 y=305 width=1280 align=center size=20 color=0xffffff text="「丑三つ時」 shimtone様"]
-[ptext layer="0" page="fore" name="credit_06" x=0 y=335 width=1280 align=center size=20 color=0xffffff text="「予知夢」 ゆうり(Yuli Audio Craft)様"]
-[ptext layer="0" page="fore" name="credit_07" x=0 y=365 width=1280 align=center size=20 color=0xffffff text="「Celesta's Cruel Caress」 MFP【Marron Fields Production】様"]
-[ptext layer="0" page="fore" name="credit_08" x=0 y=395 width=1280 align=center size=20 color=0xffffff text="「宇宙 (アンビエント系)」 corico様"]
-[ptext layer="0" page="fore" name="credit_09" x=0 y=465 width=1280 align=center size=22 color=0xffffff text="SE"]
-[ptext layer="0" page="fore" name="credit_10" x=0 y=500 width=1280 align=center size=21 color=0xffffff text="効果音ラボ"]
-[ptext layer="0" page="fore" name="credit_11" x=0 y=530 width=1280 align=center size=21 color=0xffffff text="ノタの森"]
-[ptext layer="0" page="fore" name="credit_12" x=0 y=585 width=1280 align=center size=21 color=0xffffff text="UIアセット"]
-[ptext layer="0" page="fore" name="credit_13" x=0 y=612 width=1280 align=center size=19 color=0xffffff text="「テーマ一括変換プラグイン その18」 空想曲線（KUUSOU-KYOKUSEN）／こ・ぱんだ様"]
-[ptext layer="0" page="fore" name="credit_14" x=0 y=642 width=1280 align=center size=17 color=0xffffff text="https://kopacurve.blog.fc2.com/"]
-[l]
+
+;--- クレジット 1/2：立ち絵・背景・BGM ---
+[ptext layer="0" page="fore" name="credit_title" x=0 y=80 width=1280 align=center size=34 color=0xffffff text="CREDITS"]
+[ptext layer="0" page="fore" name="credit_01" x=0 y=170 width=1280 align=center size=22 color=0xffffff text="立ち絵、背景"]
+[ptext layer="0" page="fore" name="credit_02" x=0 y=205 width=1280 align=center size=22 color=0xffffff text="GPT Image 2"]
+[ptext layer="0" page="fore" name="credit_03" x=0 y=285 width=1280 align=center size=22 color=0xffffff text="BGM"]
+[ptext layer="0" page="fore" name="credit_04" x=0 y=320 width=1280 align=center size=21 color=0xffffff text="DOVA-SYNDROME"]
+[ptext layer="0" page="fore" name="credit_05" x=0 y=358 width=1280 align=center size=20 color=0xffffff text="「丑三つ時」 shimtone様"]
+[ptext layer="0" page="fore" name="credit_06" x=0 y=390 width=1280 align=center size=20 color=0xffffff text="「予知夢」 ゆうり(Yuli Audio Craft)様"]
+[ptext layer="0" page="fore" name="credit_07" x=0 y=422 width=1280 align=center size=20 color=0xffffff text="「Celesta's Cruel Caress」 MFP【Marron Fields Production】様"]
+[ptext layer="0" page="fore" name="credit_08" x=0 y=454 width=1280 align=center size=20 color=0xffffff text="「宇宙 (アンビエント系)」 corico様"]
+[ptext layer="0" page="fore" name="credit_hint" x=0 y=660 width=1280 align=center size=18 color=0x888888 text="クリックで進む ▶"]
+[button graphic="transparent_button.png" folder="image" x=0 y=0 width=1280 height=720 target="*credits_p2"]
+[iscript]
+tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag("jump", {target:"*credits_p2"}); }, 9000);
+[endscript]
+[s]
+
+*credits_p2
+[iscript]
+if (tf.cred_timer) { clearTimeout(tf.cred_timer); tf.cred_timer = null; }
+[endscript]
+[clearfix]
 [free layer="0" page="fore" name="credit_title"]
 [free layer="0" page="fore" name="credit_01"]
 [free layer="0" page="fore" name="credit_02"]
@@ -1987,12 +2017,37 @@ tf.clear_father = true;
 [free layer="0" page="fore" name="credit_06"]
 [free layer="0" page="fore" name="credit_07"]
 [free layer="0" page="fore" name="credit_08"]
+[free layer="0" page="fore" name="credit_hint"]
+[wait time=300]
+
+;--- クレジット 2/2：SE・UIアセット ---
+[ptext layer="0" page="fore" name="credit_title" x=0 y=80 width=1280 align=center size=34 color=0xffffff text="CREDITS"]
+[ptext layer="0" page="fore" name="credit_09" x=0 y=210 width=1280 align=center size=22 color=0xffffff text="SE"]
+[ptext layer="0" page="fore" name="credit_10" x=0 y=250 width=1280 align=center size=21 color=0xffffff text="効果音ラボ"]
+[ptext layer="0" page="fore" name="credit_11" x=0 y=284 width=1280 align=center size=21 color=0xffffff text="ノタの森"]
+[ptext layer="0" page="fore" name="credit_12" x=0 y=370 width=1280 align=center size=22 color=0xffffff text="UIアセット"]
+[ptext layer="0" page="fore" name="credit_13" x=0 y=412 width=1280 align=center size=19 color=0xffffff text="「テーマ一括変換プラグイン その18」 空想曲線（KUUSOU-KYOKUSEN）／こ・ぱんだ様"]
+[ptext layer="0" page="fore" name="credit_14" x=0 y=446 width=1280 align=center size=17 color=0xffffff text="https://kopacurve.blog.fc2.com/"]
+[ptext layer="0" page="fore" name="credit_hint" x=0 y=660 width=1280 align=center size=18 color=0x888888 text="クリックでタイトルへ ▶"]
+[button graphic="transparent_button.png" folder="image" x=0 y=0 width=1280 height=720 target="*credits_end"]
+[iscript]
+tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag("jump", {target:"*credits_end"}); }, 9000);
+[endscript]
+[s]
+
+*credits_end
+[iscript]
+if (tf.cred_timer) { clearTimeout(tf.cred_timer); tf.cred_timer = null; }
+[endscript]
+[clearfix]
+[free layer="0" page="fore" name="credit_title"]
 [free layer="0" page="fore" name="credit_09"]
 [free layer="0" page="fore" name="credit_10"]
 [free layer="0" page="fore" name="credit_11"]
 [free layer="0" page="fore" name="credit_12"]
 [free layer="0" page="fore" name="credit_13"]
 [free layer="0" page="fore" name="credit_14"]
+[free layer="0" page="fore" name="credit_hint"]
 [jump target="*return_title"]
 
 *return_title
