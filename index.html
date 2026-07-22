@@ -513,11 +513,17 @@ h2 {
     }
 
     footer {
-      padding: 28px 24px;
+      padding: 26px 24px;
       background: #0f131a;
       color: rgba(255, 255, 255, .52);
       text-align: center;
       font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* 行間は .ft-sister の margin だけで作る。p の既定マージンが残ると二重になる */
+    footer p {
+      margin: 0;
     }
 
     .ft-sister {
@@ -525,7 +531,7 @@ h2 {
       flex-wrap: wrap;
       gap: 18px;
       justify-content: center;
-      margin: 0 0 14px;
+      margin: 0 0 8px;
       font-size: 12.5px;
     }
 
