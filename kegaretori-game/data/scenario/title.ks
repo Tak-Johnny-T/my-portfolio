@@ -26,6 +26,11 @@
 ;文字以外は同じ絵なので、クロスフェードすると「Click to Start」だけが消えていくように見える。
 ;BGMは先に鳴り始めているため、ここは間をとってゆっくり消す。
 [bg storage="ui_title_bg_logo.jpg" time=800]
+;【2026-07-23】クレジットから戻ってきた場合はマスク（暗転）が掛かったままなので、ここで解除して
+;タイトルをゆっくり浮かび上がらせる。通常起動やゲームオーバーからの復帰時はマスクが無いため空振りする（安全）。
+;必ず上の「文字なし背景への差し替え」より後に置くこと。前に置くと復帰時に「Click to Start」が見えてしまう。
+;この行を消すと、クレジット後のタイトルが真っ暗のままになるので注意。
+[mask_off time=1500]
 [image layer="0" page="fore" name="title_btn_start" storage="ui_title_start.png" folder="image" left=130 top=320 width=330 height=54 time=900 wait="false"]
 [image layer="0" page="fore" name="title_btn_load" storage="ui_title_load.png" folder="image" left=130 top=425 width=330 height=54 time=900 wait="false"]
 [image layer="0" page="fore" name="title_btn_config" storage="ui_title_config.png" folder="image" left=130 top=535 width=330 height=54 time=900 wait="false"]

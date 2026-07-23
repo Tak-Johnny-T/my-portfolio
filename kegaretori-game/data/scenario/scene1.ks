@@ -1981,7 +1981,7 @@ tf.clear_father = true;
 [ptext layer="0" page="fore" name="end_author" x=0 y=450 width=1280 align=center size=24 color=0xffffff text="T.Johnny T.（じょにー）"]
 [button graphic="transparent_button.png" folder="image" x=0 y=0 width=1280 height=720 target="*credits_p1"]
 [iscript]
-tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag("jump", {target:"*credits_p1"}); }, 4000);
+tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag("jump", {target:"*credits_p1"}); }, 5000);
 [endscript]
 [s]
 
@@ -2007,7 +2007,7 @@ if (tf.cred_timer) { clearTimeout(tf.cred_timer); tf.cred_timer = null; }
 [ptext layer="0" page="fore" name="credit_08" x=0 y=454 width=1280 align=center size=20 color=0xffffff text="「宇宙 (アンビエント系)」 corico様"]
 [button graphic="transparent_button.png" folder="image" x=0 y=0 width=1280 height=720 target="*credits_p2"]
 [iscript]
-tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag("jump", {target:"*credits_p2"}); }, 9000);
+tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag("jump", {target:"*credits_p2"}); }, 6000);
 [endscript]
 [s]
 
@@ -2037,7 +2037,7 @@ if (tf.cred_timer) { clearTimeout(tf.cred_timer); tf.cred_timer = null; }
 [ptext layer="0" page="fore" name="credit_14" x=0 y=446 width=1280 align=center size=17 color=0xffffff text="https://kopacurve.blog.fc2.com/"]
 [button graphic="transparent_button.png" folder="image" x=0 y=0 width=1280 height=720 target="*credits_end"]
 [iscript]
-tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag("jump", {target:"*credits_end"}); }, 9000);
+tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag("jump", {target:"*credits_end"}); }, 6000);
 [endscript]
 [s]
 
@@ -2046,6 +2046,13 @@ tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag("jump", {target:
 if (tf.cred_timer) { clearTimeout(tf.cred_timer); tf.cred_timer = null; }
 [endscript]
 [clearfix]
+;--- ゆっくり暗転してタイトルへ戻る ---
+;クレジット本文は表示したまま暗転させ、暗転しきってから片付ける（文字が一瞬で消えないように）。
+;※暗転はマスクを掛けたまま title.ks へ渡す。タイトルは title.ks 側の [mask_off] で浮かび上がる。
+;  title.ks から [mask_off] を消すとタイトルが真っ暗のままになるので注意。
+[fadeoutbgm time=3000]
+[mask color=0x000000 time=3000]
+[wait time=800]
 [free layer="0" page="fore" name="credit_title"]
 [free layer="0" page="fore" name="credit_09"]
 [free layer="0" page="fore" name="credit_10"]
