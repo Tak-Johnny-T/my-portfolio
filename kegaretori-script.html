@@ -31,6 +31,9 @@
 ; TyranoScript v603b 対応
 ; 想定解像度: 1280x720
 ; 一行最大24文字で折り返し
+; 【暗転演出の約束事 2026-07-23】マスク中の背景差し替えは必ず [bg ... time=1] にする。
+;   time=0 だとエンジンが画像プリロード完了を待たずに次のタグ（[mask_off]）へ進むため、
+;   マスクが開く瞬間に前の背景が一瞬見える（フラッシュ）。time=1 は実質瞬時＋スワップ完了待ち。
 ;=========================================
 
 *start
@@ -270,7 +273,7 @@ tf.clear_face     = false;
 *intro_shrine
 
 [speaker_clear]
-[bg storage=&quot;bg_shrine_path_night.jpg&quot; time=0]
+[bg storage=&quot;bg_shrine_path_night.jpg&quot; time=1]
 [playbgm storage=&quot;bgm_shrine_nigh.mp3&quot; volume=70]
 [mask_off time=1200]
 [wait time=800]
@@ -446,7 +449,7 @@ tf.clear_face     = false;
 [wait time=1200]
 
 [speaker_clear]
-[bg storage=&quot;bg_classroom_day.jpg&quot; time=0]
+[bg storage=&quot;bg_classroom_day.jpg&quot; time=1]
 ;[playbgm storage=&quot;bgm_daily.ogg&quot;] ; 現行アセットではBGMなし
 [mask_off time=1200]
 [wait time=600]
@@ -480,7 +483,7 @@ tf.clear_face     = false;
 *gameover_eula
 
 [speaker_clear]
-[bg storage=&quot;bg_black.png&quot; time=0]
+[bg storage=&quot;bg_black.png&quot; time=1]
 [mask_off time=500]
 [chara_hide name=&quot;aoi&quot;]
 [phone_text_clear]
@@ -501,7 +504,7 @@ tf.clear_face     = false;
 [cm]
 [layopt layer=&quot;message0&quot; visible=true]
 [speaker_clear]
-[bg storage=&quot;bg_hokora_night.jpg&quot; time=0]
+[bg storage=&quot;bg_hokora_night.jpg&quot; time=1]
 [playbgm storage=&quot;bgm_shrine_nigh.mp3&quot; volume=70]
 [jump target=&quot;*eula_choice&quot;]
 
@@ -612,7 +615,7 @@ tf.first_target = &quot;sagawa&quot;;
 *development_morning
 
 [speaker_clear]
-[bg storage=&quot;bg_classroom_day.jpg&quot; time=0]
+[bg storage=&quot;bg_classroom_day.jpg&quot; time=1]
 ;[playbgm storage=&quot;bgm_daily.ogg&quot;] ; 現行アセットではBGMなし
 [mask_off time=1500]
 [wait time=600]
@@ -715,7 +718,7 @@ tf.first_target = &quot;sagawa&quot;;
 [mask color=0x000000 time=900]
 [wait time=400]
 
-[bg storage=&quot;bg_school_gym.jpg&quot; time=0]
+[bg storage=&quot;bg_school_gym.jpg&quot; time=1]
 [mask_off time=900]
 [wait time=500]
 
@@ -758,7 +761,7 @@ tf.clear_totsuka = true;
 [mask color=0x000000 time=900]
 [wait time=400]
 [playse storage=&quot;se_sharan.mp3&quot; volume=80]
-[bg storage=&quot;bg_aoi_room_day.jpg&quot; time=0]
+[bg storage=&quot;bg_aoi_room_day.jpg&quot; time=1]
 [mask_off time=800]
 [wait time=500]
 
@@ -788,7 +791,7 @@ tf.clear_totsuka = true;
 
 [chara_hide name=&quot;aoi&quot;]
 [mask time=800]
-[bg storage=&quot;bg_classroom_day.jpg&quot; time=0]
+[bg storage=&quot;bg_classroom_day.jpg&quot; time=1]
 [mask_off time=800]
 [chara_show name=&quot;aoi&quot; face=&quot;smile_bright&quot; width=&quot;980&quot;]
 
@@ -853,7 +856,7 @@ tf.clear_face = true;
 [wait time=500]
 [mask color=0x000000 time=900]
 [wait time=400]
-[bg storage=&quot;bg_dining_room.jpg&quot; time=0]
+[bg storage=&quot;bg_dining_room.jpg&quot; time=1]
 [mask_off time=900]
 
 
@@ -900,7 +903,7 @@ tf.clear_father = true;
 [chara_hide name=&quot;aoi&quot;]
 [mask color=0x000000 time=1200]
 [wait time=800]
-[bg storage=&quot;bg_school_hallway.jpg&quot; time=0]
+[bg storage=&quot;bg_school_hallway.jpg&quot; time=1]
 [chara_show name=&quot;aoi&quot; face=&quot;radiant&quot; width=&quot;980&quot;]
 [mask_off time=1200]
 [wait time=600]
@@ -935,7 +938,7 @@ tf.clear_father = true;
 [speaker_clear]
 [mask color=0x000000 time=1000]
 [wait time=500]
-[bg storage=&quot;bg_sunset_road.jpg&quot; time=0]
+[bg storage=&quot;bg_sunset_road.jpg&quot; time=1]
 [chara_show name=&quot;aoi&quot; face=&quot;serene&quot; width=&quot;980&quot;]
 [mask_off time=1500]
 [wait time=700]
@@ -968,7 +971,7 @@ tf.clear_father = true;
 [phone_text_clear]
 [freeimage layer=&quot;0&quot; page=&quot;fore&quot; time=300]
 [speaker_clear]
-[bg storage=&quot;bg_shrine_path_day.jpg&quot; time=0]
+[bg storage=&quot;bg_shrine_path_day.jpg&quot; time=1]
 [wait time=700]
 [mask_off time=1600]
 [wait time=800]
@@ -1278,7 +1281,7 @@ tf.clear_father = true;
 *escape_room
 
 [speaker_clear]
-[bg storage=&quot;bg_aoi_room_day.jpg&quot; time=0]
+[bg storage=&quot;bg_aoi_room_day.jpg&quot; time=1]
 [playbgm storage=&quot;bgm_cursed.mp3&quot; volume=60]
 [mask_off time=1000]
 [wait time=600]
@@ -1324,7 +1327,7 @@ tf.clear_father = true;
 ;--- スマホ復活 ---
 *escape_phone_return
 
-[bg storage=&quot;bg_aoi_room_evening.jpg&quot; time=0]
+[bg storage=&quot;bg_aoi_room_evening.jpg&quot; time=1]
 [mask_off time=1000]
 [wait time=500]
 
@@ -1547,7 +1550,7 @@ tf.clear_father = true;
 *climax_dark_shrine
 
 [speaker_clear]
-[bg storage=&quot;bg_hokora_night.jpg&quot; time=0]
+[bg storage=&quot;bg_hokora_night.jpg&quot; time=1]
 [playbgm storage=&quot;bgm_climax.mp3&quot; volume=60]
 [mask_off time=2000]
 [wait time=1000]
@@ -1809,7 +1812,7 @@ tf.clear_father = true;
 
 [stopse buf=4]
 [speaker_clear]
-[bg storage=&quot;bg_black.png&quot; time=0]
+[bg storage=&quot;bg_black.png&quot; time=1]
 [mask_off time=500]
 [chara_hide name=&quot;aoi&quot;]
 [phone_text_clear]
@@ -1832,7 +1835,7 @@ tf.clear_father = true;
 [cm]
 [layopt layer=&quot;message0&quot; visible=true]
 [speaker_clear]
-[bg storage=&quot;bg_hokora_night.jpg&quot; time=0]
+[bg storage=&quot;bg_hokora_night.jpg&quot; time=1]
 [playbgm storage=&quot;bgm_climax.mp3&quot; volume=60]
 [jump target=&quot;*climax_fear_reveal&quot;]
 
@@ -1892,7 +1895,7 @@ tf.clear_father = true;
 [speaker_clear]
 [mask color=0x000000 time=2000]
 [wait time=1500]
-[bg storage=&quot;bg_hokora_night.jpg&quot; time=0]
+[bg storage=&quot;bg_hokora_night.jpg&quot; time=1]
 [mask_off time=1200]
 [wait time=1200]
 
@@ -1922,7 +1925,7 @@ tf.clear_father = true;
 *epilogue
 
 [speaker_clear]
-[bg storage=&quot;bg_shrine_path_day.jpg&quot; time=0]
+[bg storage=&quot;bg_shrine_path_day.jpg&quot; time=1]
 ;[playbgm storage=&quot;bgm_loop_calm.ogg&quot; volume=50] ; 現行アセットではBGMなし
 [mask_off time=2500]
 [wait time=1200]
@@ -1986,7 +1989,7 @@ tf.clear_father = true;
 [phone_text_clear]
 [freeimage layer=&quot;0&quot; page=&quot;fore&quot; time=500]
 [layopt layer=&quot;message0&quot; visible=false]
-[bg storage=&quot;bg_black.png&quot; time=0]
+[bg storage=&quot;bg_black.png&quot; time=1]
 [mask_off time=1000]
 [wait time=600]
 ;【改修 2026-07-22】クレジットを2画面に分割し、「一定時間経過 または クリック」で進むようにした。
@@ -1996,13 +1999,17 @@ tf.clear_father = true;
 ;（canskip 属性も存在しない）。そこで全画面の透明ボタン＋[s] で待機し、
 ;同時に setTimeout で jump を予約する二段構えにしている。
 ;**ジャンプ先の先頭では必ず clearTimeout すること**（クリックで進んだ後にタイマーが発火する二重遷移を防ぐ）。
-;画面下の「クリックで進む」表示は、操作可能であることを明示するための本命の対策。
+;【改修 2026-07-23】画面下の「クリックで進む／タイトルへ」表示は、作者の意向で削除した。
+;自動送り（setTimeout）で必ず進むため案内は不要。透明ボタンによるクリック送りは引き続き有効。
 
-;--- 「完」 ---
+;--- 「完」＋作者名 ---
+;作者名はCREDITS内に埋没させず「完」画面に同居させる（実況視聴者に名前を残すため。英語版のEND画面と統一）。
 [ptext layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;end_mark&quot; x=0 y=290 width=1280 align=center size=72 color=0xffffff text=&quot;完&quot;]
+[ptext layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;end_author_role&quot; x=0 y=418 width=1280 align=center size=20 color=0xffffff text=&quot;企画・脚本・制作&quot;]
+[ptext layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;end_author&quot; x=0 y=450 width=1280 align=center size=24 color=0xffffff text=&quot;T.Johnny T.（じょにー）&quot;]
 [button graphic=&quot;transparent_button.png&quot; folder=&quot;image&quot; x=0 y=0 width=1280 height=720 target=&quot;*credits_p1&quot;]
 [iscript]
-tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag(&quot;jump&quot;, {target:&quot;*credits_p1&quot;}); }, 4000);
+tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag(&quot;jump&quot;, {target:&quot;*credits_p1&quot;}); }, 5000);
 [endscript]
 [s]
 
@@ -2012,6 +2019,8 @@ if (tf.cred_timer) { clearTimeout(tf.cred_timer); tf.cred_timer = null; }
 [endscript]
 [clearfix]
 [free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;end_mark&quot;]
+[free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;end_author_role&quot;]
+[free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;end_author&quot;]
 [wait time=300]
 
 ;--- クレジット 1/2：立ち絵・背景・BGM ---
@@ -2024,10 +2033,9 @@ if (tf.cred_timer) { clearTimeout(tf.cred_timer); tf.cred_timer = null; }
 [ptext layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_06&quot; x=0 y=390 width=1280 align=center size=20 color=0xffffff text=&quot;「予知夢」 ゆうり(Yuli Audio Craft)様&quot;]
 [ptext layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_07&quot; x=0 y=422 width=1280 align=center size=20 color=0xffffff text=&quot;「Celesta's Cruel Caress」 MFP【Marron Fields Production】様&quot;]
 [ptext layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_08&quot; x=0 y=454 width=1280 align=center size=20 color=0xffffff text=&quot;「宇宙 (アンビエント系)」 corico様&quot;]
-[ptext layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_hint&quot; x=0 y=660 width=1280 align=center size=18 color=0x888888 text=&quot;クリックで進む ▶&quot;]
 [button graphic=&quot;transparent_button.png&quot; folder=&quot;image&quot; x=0 y=0 width=1280 height=720 target=&quot;*credits_p2&quot;]
 [iscript]
-tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag(&quot;jump&quot;, {target:&quot;*credits_p2&quot;}); }, 9000);
+tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag(&quot;jump&quot;, {target:&quot;*credits_p2&quot;}); }, 6000);
 [endscript]
 [s]
 
@@ -2045,7 +2053,6 @@ if (tf.cred_timer) { clearTimeout(tf.cred_timer); tf.cred_timer = null; }
 [free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_06&quot;]
 [free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_07&quot;]
 [free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_08&quot;]
-[free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_hint&quot;]
 [wait time=300]
 
 ;--- クレジット 2/2：SE・UIアセット ---
@@ -2056,10 +2063,9 @@ if (tf.cred_timer) { clearTimeout(tf.cred_timer); tf.cred_timer = null; }
 [ptext layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_12&quot; x=0 y=370 width=1280 align=center size=22 color=0xffffff text=&quot;UIアセット&quot;]
 [ptext layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_13&quot; x=0 y=412 width=1280 align=center size=19 color=0xffffff text=&quot;「テーマ一括変換プラグイン その18」 空想曲線（KUUSOU-KYOKUSEN）／こ・ぱんだ様&quot;]
 [ptext layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_14&quot; x=0 y=446 width=1280 align=center size=17 color=0xffffff text=&quot;https://kopacurve.blog.fc2.com/&quot;]
-[ptext layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_hint&quot; x=0 y=660 width=1280 align=center size=18 color=0x888888 text=&quot;クリックでタイトルへ ▶&quot;]
 [button graphic=&quot;transparent_button.png&quot; folder=&quot;image&quot; x=0 y=0 width=1280 height=720 target=&quot;*credits_end&quot;]
 [iscript]
-tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag(&quot;jump&quot;, {target:&quot;*credits_end&quot;}); }, 9000);
+tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag(&quot;jump&quot;, {target:&quot;*credits_end&quot;}); }, 6000);
 [endscript]
 [s]
 
@@ -2068,6 +2074,13 @@ tf.cred_timer = setTimeout(function(){ TYRANO.kag.ftag.startTag(&quot;jump&quot;
 if (tf.cred_timer) { clearTimeout(tf.cred_timer); tf.cred_timer = null; }
 [endscript]
 [clearfix]
+;--- ゆっくり暗転してタイトルへ戻る ---
+;クレジット本文は表示したまま暗転させ、暗転しきってから片付ける（文字が一瞬で消えないように）。
+;※暗転はマスクを掛けたまま title.ks へ渡す。タイトルは title.ks 側の [mask_off] で浮かび上がる。
+;  title.ks から [mask_off] を消すとタイトルが真っ暗のままになるので注意。
+[fadeoutbgm time=3000]
+[mask color=0x000000 time=3000]
+[wait time=800]
 [free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_title&quot;]
 [free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_09&quot;]
 [free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_10&quot;]
@@ -2075,7 +2088,6 @@ if (tf.cred_timer) { clearTimeout(tf.cred_timer); tf.cred_timer = null; }
 [free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_12&quot;]
 [free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_13&quot;]
 [free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_14&quot;]
-[free layer=&quot;0&quot; page=&quot;fore&quot; name=&quot;credit_hint&quot;]
 [jump target=&quot;*return_title&quot;]
 
 *return_title
